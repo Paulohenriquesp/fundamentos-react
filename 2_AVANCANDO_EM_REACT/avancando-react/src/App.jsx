@@ -1,6 +1,7 @@
 import "./App.css";
 
 import Maca from "./assets/maca.jpg";
+import ListRender from "./componentes/ListRender";
 import { ManageData } from "./componentes/ManageData";
 
 function App() {
@@ -15,7 +16,8 @@ function App() {
         {/* Imagem em Assets */}
         <img src={Maca} alt="Maçã" />
       </div>      
-        <ManageData />      
+        <ManageData />   
+        <ListRender />   
     </div>
   );
 }
