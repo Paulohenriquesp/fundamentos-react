@@ -1,6 +1,7 @@
 import "./App.css";
 
 import Maca from "./assets/maca.jpg";
+import ConditionalRender from "./componentes/ConditionalRender";
 import ListRender from "./componentes/ListRender";
 import { ManageData } from "./componentes/ManageData";
 
@@ -18,6 +19,7 @@ function App() {
       </div>      
         <ManageData />   
         <ListRender />   
+        <ConditionalRender />
     </div>
   );
 }
