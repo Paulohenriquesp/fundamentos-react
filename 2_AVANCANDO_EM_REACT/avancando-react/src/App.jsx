@@ -7,6 +7,8 @@ import ListRender from "./componentes/ListRender";
 import { ManageData } from "./componentes/ManageData";
 import ShowUserName from "./componentes/showUserName";
 import CarDetails from "./componentes/CarDetails";
+import Fragment from "./componentes/fragment";
+import Container from "./componentes/Container";
 
 function App() {
   const [userName] = useState("Eduardo Paes Silva Moraes");
@@ -64,7 +66,10 @@ function App() {
         newCar={car.newCar}
         />
       ))}
-      
+      <Fragment propFragment="teste" />
+      <Container myValue="testing">
+        <p>Este é o contéudo</p>
+      </Container>
     </div>
   );
 }
