@@ -8,10 +8,32 @@ import { ManageData } from "./componentes/ManageData";
 import ShowUserName from "./componentes/showUserName";
 import CarDetails from "./componentes/CarDetails";
 
-
 function App() {
-  const [userName] = useState("Eduardo Paes Silva Moraes")
-  
+  const [userName] = useState("Eduardo Paes Silva Moraes");
+  const cars = [
+    {
+      id: 1,
+      brand: "Ferrari",
+      color: "Vermelha",
+      newCar: true,
+      km: 0
+    },
+    {
+      id: 2,
+      brand: "Lambo",
+      color: "Vermelha",
+      newCar: true,
+      km: 3513
+    },
+    {
+      id: 3,
+      brand: "Uno com escada",
+      color: "Branco",
+      newCar: false,
+      km: 100000
+    },
+  ];
+
   return (
     <div className="app">
       <div>AVANÇANDO EM REACT</div>
@@ -22,16 +44,27 @@ function App() {
       <div>
         {/* Imagem em Assets */}
         <img src={Maca} alt="Maçã" />
-      </div>      
-        <ManageData />   
-        <ListRender />   
-        <ConditionalRender />
-        {/*props*/}
-        <ShowUserName name={userName} />
-        {/* destructuring */}
-        <CarDetails brand="VW" km={10000} color="Blue" newCar={false} />
-        {/*Reaproveitamento*/}
-        <CarDetails brand="Fiat" km={3000} color="White" newCar={true}/>
+      </div>
+      <ManageData />
+      <ListRender />
+      <ConditionalRender />
+      {/*props*/}
+      <ShowUserName name={userName} />
+      {/* destructuring */}
+      <CarDetails brand="VW" km={10000} color="Blue" newCar={false} />
+      {/*Reaproveitamento*/}
+      <CarDetails brand="Fiat" km={3000} color="White" newCar={true} />
+      {/*loop em array de objetos*/}
+      {cars.map((car) => (
+        // eslint-disable-next-line react/jsx-key
+        <CarDetails 
+        brand={car.brand} 
+        color={car.color}
+        km={car.km}
+        newCar={car.newCar}
+        />
+      ))}
+      
     </div>
   );
 }
