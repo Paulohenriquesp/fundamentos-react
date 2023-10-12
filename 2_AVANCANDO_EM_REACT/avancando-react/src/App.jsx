@@ -9,6 +9,7 @@ import ShowUserName from "./componentes/showUserName";
 import CarDetails from "./componentes/CarDetails";
 import Fragment from "./componentes/fragment";
 import Container from "./componentes/Container";
+import ExecuteFunction from "./componentes/ExecuteFunction";
 
 function App() {
   const [userName] = useState("Eduardo Paes Silva Moraes");
@@ -18,24 +19,27 @@ function App() {
       brand: "Ferrari",
       color: "Vermelha",
       newCar: true,
-      km: 0
+      km: 0,
     },
     {
       id: 2,
       brand: "Lambo",
       color: "Vermelha",
       newCar: true,
-      km: 3513
+      km: 3513,
     },
     {
       id: 3,
       brand: "Uno com escada",
       color: "Branco",
       newCar: false,
-      km: 100000
+      km: 100000,
     },
   ];
 
+  function showMessage() {
+    console.log("Evento do componente pai!");
+  }
   return (
     <div className="app">
       <div>AVANÇANDO EM REACT</div>
@@ -59,17 +63,20 @@ function App() {
       {/*loop em array de objetos*/}
       {cars.map((car) => (
         // eslint-disable-next-line react/jsx-key
-        <CarDetails 
-        brand={car.brand} 
-        color={car.color}
-        km={car.km}
-        newCar={car.newCar}
+        <CarDetails
+          key={car.id}
+          brand={car.brand}
+          color={car.color}
+          km={car.km}
+          newCar={car.newCar}
         />
       ))}
       <Fragment propFragment="teste" />
       <Container myValue="testing">
         <p>Este é o contéudo</p>
       </Container>
+      {/* executar função */}
+      <ExecuteFunction myFunction={showMessage} />
     </div>
   );
 }
