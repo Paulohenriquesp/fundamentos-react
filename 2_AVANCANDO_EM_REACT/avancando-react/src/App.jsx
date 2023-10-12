@@ -10,6 +10,8 @@ import CarDetails from "./componentes/CarDetails";
 import Fragment from "./componentes/fragment";
 import Container from "./componentes/Container";
 import ExecuteFunction from "./componentes/ExecuteFunction";
+import Message from "./componentes/Message";
+import ChangeMessageState from "./componentes/ChangeMessageState";
 
 function App() {
   const [userName] = useState("Eduardo Paes Silva Moraes");
@@ -40,6 +42,13 @@ function App() {
   function showMessage() {
     console.log("Evento do componente pai!");
   }
+
+  const [message, setMessage] = useState("");
+
+  const handleMessage = (msg) => {
+    setMessage(msg);
+  };
+
   return (
     <div className="app">
       <div>AVANÇANDO EM REACT</div>
@@ -77,6 +86,9 @@ function App() {
       </Container>
       {/* executar função */}
       <ExecuteFunction myFunction={showMessage} />
+      {/* state lift */}
+      <Message msg={message}/>
+      <ChangeMessageState handleMessage={handleMessage}/>
     </div>
   );
 }
