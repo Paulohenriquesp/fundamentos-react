@@ -12,6 +12,7 @@ import Container from "./componentes/Container";
 import ExecuteFunction from "./componentes/ExecuteFunction";
 import Message from "./componentes/Message";
 import ChangeMessageState from "./componentes/ChangeMessageState";
+import UserDetails from "./componentes/UserDetails";
 
 function App() {
   const [userName] = useState("Eduardo Paes Silva Moraes");
@@ -38,6 +39,16 @@ function App() {
       km: 100000,
     },
   ];
+
+  const pessoas = [
+    { id: 1, nome: 'Paulo', idade: 32, cidade: "São Paulo" },
+    { id: 2, nome: 'Gustavo', idade: 30, cidade: "Santa Catarina" },
+    { id: 3, nome: 'Caio', idade: 17, cidade: "Parana" },
+    { id: 4, nome: 'Junior', idade: 43, cidade: "São Paulo" },
+    { id: 5, nome: 'Marcelo', idade: 16, cidade: "São Paulo" },
+    { id: 6, nome: 'Flavia', idade: 18, cidade: "São Paulo" },
+    { id: 7, nome: 'Amanda', idade: 19, cidade: "São Paulo" } 
+]
 
   function showMessage() {
     console.log("Evento do componente pai!");
@@ -89,6 +100,15 @@ function App() {
       {/* state lift */}
       <Message msg={message}/>
       <ChangeMessageState handleMessage={handleMessage}/>
+      {pessoas.map((pessoas) =>(
+        // eslint-disable-next-line react/jsx-key
+        <UserDetails 
+        key={pessoas.id}
+        nome={pessoas.nome}
+        idade={pessoas.idade}
+        cidade={pessoas.cidade}
+        /> 
+      ))}
     </div>
   );
 }
